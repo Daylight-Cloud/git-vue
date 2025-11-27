@@ -1,0 +1,146 @@
+/* ======  CSS 变量（一键换肤） ====== */
+:root {
+  /* 主色 - 你的原有色系 */
+  --color-primary: #8bb8a8;
+  --color-primary-end: #b3c7d6;
+
+  /* 背景/文字 */
+  --bg-body: #f7f6f2;
+  --bg-card: #e6ecef;
+  --text-main: #3a3a3a;
+  --text-sub: #7a7a7a;
+
+  /* 圆角 & 阴影 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 4px 24px rgba(163, 193, 218, 0.08);
+
+  /* 动效 */
+  --transition: all 0.3s ease;
+}
+
+/* ====== 系统暗黑偏好（自动切换） ====== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --text-main: #e5e5e5;
+    --text-sub: #a3a3a3;
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ====== 全局基础 ====== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'PingFang SC', 'Hiragino Sans', Arial, sans-serif;
+  background: var(--bg-body);
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 选中文本高亮 */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* 输入框光标颜色 */
+input,
+.el-input__inner,
+.el-textarea__inner {
+  caret-color: var(--color-primary);
+}
+
+/* 按钮统一圆角 + 悬停动效 */
+button {
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Element Plus 覆盖 ====== */
+.el-button {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-md);
+}
+.el-button--primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-end) 100%);
+  border: 0;
+}
+.el-button--primary:hover {
+  box-shadow: 0 6px 20px rgba(139, 184, 168, 0.4);
+}
+
+.el-input__wrapper {
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: var(--transition);
+}
+.el-input__wrapper:focus-within {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.el-table,
+.el-table th,
+.el-table td {
+  background: var(--bg-card);
+  color: var(--text-main);
+}
+
+.el-dialog {
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+}
+
+.el-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* 登录页玻璃卡专用（可选） */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+@media (prefers-color-scheme: dark) {
+  .glass-card {
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* 全局工具类 */
+.text-primary {
+  color: var(--color-primary);
+}
+.bg-primary {
+  background: var(--color-primary);
+}
+.radius-lg {
+  border-radius: var(--radius-lg);
+}
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
