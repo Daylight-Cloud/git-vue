@@ -80,7 +80,7 @@ const onLogin = async () => {
   if (!valid) return
   loading.value = true
   try {
-    const { data } = await axios.post('http://localhost:3000/login', form.value)
+    const { data } = await axios.post('http://101.42.169.71:3000/login', form.value)
     const { token, user } = data || {}
     if (!token) {
       ElMessage.error('Token 获取失败')

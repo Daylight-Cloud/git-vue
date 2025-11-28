@@ -4,7 +4,7 @@ import { useUserStore } from '../stores/user'
 
 // 创建一个 Axios 实例
 const service = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || 'http://localhost:3000/api',
+  baseURL: import.meta.env.VITE_API_BASE || 'http://101.42.169.71:3000/api',
   timeout: 10000
 })
 

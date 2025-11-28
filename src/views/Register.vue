@@ -59,7 +59,7 @@ const onRegister = () => {
     if (!valid) return;
     loading.value = true;
     try {
-      await axios.post('http://localhost:3000/register', {
+      await axios.post('http://101.42.169.71:3000/register', {
         username: form.value.username,
         password: form.value.password,
         role: form.value.role
